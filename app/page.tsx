@@ -1,11 +1,9 @@
-import { getData } from "@/actions/todoActions";
-import { getAllUsers, getUser } from "@/actions/userActions";
+import { getUser } from "@/actions/userActions";
 import Todos from "@/components/Todos";
-import { currentUser } from "@clerk/nextjs/server";
-import Image from "next/image";
+import { currentUser, User } from "@clerk/nextjs/server";
 
 export default async function Home() {
-  const user: any = await currentUser();
+  const user: User | null = await currentUser();
   if (!user) return;
   const fetchedData = await getUser(user?.id);
   console.log(fetchedData);

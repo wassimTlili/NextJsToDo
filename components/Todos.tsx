@@ -1,6 +1,7 @@
 "use client";
 import { FC, useState } from "react";
 import { todoType } from "../types/todoType";
+import { userType } from "../types/userType";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 import {
@@ -9,11 +10,10 @@ import {
   editTodo,
   toggleTodo,
 } from "../actions/todoActions";
-import { addUser } from "../actions/userActions";
 
 interface Props {
   todos: todoType[];
-  user: any;
+  user: userType;
 }
 
 const Todos: FC<Props> = ({ todos, user }) => {
